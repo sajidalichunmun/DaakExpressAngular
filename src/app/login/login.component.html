@@ -1,0 +1,78 @@
+<div class="login-container bg-light" style="margin-top: -25px;">
+    <div class="login-box" [hidden]="isLoading">
+      <div class="container d-flex flex-column">
+        <div class="row">
+          <div class="col-12 mt-4 mx-auto">
+            <div id="error" [hidden]="!(loginError === 'invalid_ext_user')" class="alert alert-danger">
+              External sign in succeeded, but your user is not a valid operator.  Please try again with a different user.
+            </div>
+          </div>
+          <div class="col-12 mt-4 mx-auto">
+            <div id="error" [hidden]="!(hasError)" class="alert alert-danger">
+              <span *ngFor="let e of errors">
+                {{ e.message }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 mt-4 mx-auto">
+            <div class="card" style="box-shadow: 5px 5px 10px 5px;background-color:rgb(217, 248, 243)">
+              <div class="card-body" style="margin-top: -51px;">
+                <h4 class="card-title text-center">
+                  <img class="logo" src="assets/logo_h.png" alt="Logo" width="80"/>
+                </h4>
+                <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                  <div class="row m-2">
+                    <div class="col">
+                      <mat-form-field class="example-full-width">
+                        <input type="text" name="email" matInput  formControlName="email" 
+                          placeholder="Ex. pat@example.com">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row m-2">
+                    <div class="col">
+                      <mat-form-field class="example-full-width">
+                      <input type="password" matInput formControlName="password"  placeholder="Password" autocomplete="off" />
+                    </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row mx-2">
+                    <button class="btn btn-primary w-100" value="login" type="submit">
+                      <i class="fa fa-sign-in"></i>&nbsp;<span>Login</span>
+                    </button>
+                  </div>
+                  <div class="row mx-2">
+                    <div class="col">
+                      <label class="">
+                        <a routerLink="/forgot-username">
+                          <small>Forgot Username?</small>
+                        </a>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row mx-2">
+                    <div class="col ">
+                      <label class="">
+                        <a routerLink="/forgot-password">
+                          <small>Forgot Password?</small>
+                        </a>
+                      </label>
+                    </div>
+                  </div>
+                  
+                </form>
+              </div>
+  
+            </div>
+  
+          </div>
+         
+        </div>
+       
+        
+      </div>
+    </div>
+  </div>
+  

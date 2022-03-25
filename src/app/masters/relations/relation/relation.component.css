@@ -1,0 +1,59 @@
+.card {
+    max-width: 100%;
+  }
+.card input{
+  width: 100%;
+}
+
+.mat-form-field{
+  display: block;
+}
+
+div.container{
+  margin: 0px 40px;
+}
+form.normal-form{
+  margin: 10px;
+}
+.controles-container{
+  width: 100%;
+  padding: 5%;
+}
+.controles-container > * {
+width: 100%;
+}
+
+/* radio group */
+.add-bottom-padding{
+  padding-bottom: 10px;
+}
+
+/* add gap b/w adjacent button */
+.button-row button{
+  margin: 5px;
+}
+mat-radio-group mat-radio-button{
+  margin-left: 5px;
+}
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.multi-selection-fill{
+  display: inline-block;
+    border: 1px solid #adadad;
+    width: 90%;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-weight: 400;
+    line-height: 1.52857143;
+    text-align: left;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border-radius: 4px;
+    padding: 5px;
+}

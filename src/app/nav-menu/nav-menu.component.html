@@ -1,0 +1,107 @@
+<header>
+    <nav
+      class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+    >
+      <div class="container">
+        <a [routerLink]="['/']">
+          <img class="pr-3" src="assets/logo-sm.png" alt="Logo" />
+        </a>
+        <a class="navbar-brand" [routerLink]="['/']"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target=".navbar-collapse"
+          aria-label="Toggle navigation"
+          [attr.aria-expanded]="isExpanded"
+          (click)="toggle()"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+          [ngClass]="{ show: isExpanded }"
+        >
+          <ul class="navbar-nav flex-grow">
+            <li
+              class="nav-item"
+              [routerLinkActive]="['link-active']"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            </li>
+            <li
+              class="nav-item"
+              [routerLinkActive]="['link-active']"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <a class="nav-link text-dark" [routerLink]="['/about']">About</a>
+            </li>
+            <li
+              class="nav-item"
+              [routerLinkActive]="['link-active']"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <a class="nav-link text-dark" [routerLink]="['/contact']">Contact</a>
+            </li>
+            <li
+              class="nav-item"
+              [hidden]="isLoggedIn"
+            >
+              <a class="nav-link text-dark" (click)="login()">Sign In</a>
+            </li>
+            <li
+              class="nav-item" ngbDropdown
+              *ngIf="isLoggedIn && showAdminMenu"
+            >
+              <a class="nav-link text-dark" ngbDropdownToggle id="masterDropdown" role="button">
+                Master
+              </a>
+              <div ngbDropdownMenu aria-labelledby="masterDropdown" class="dropdown-menu dropdown-menu-right">
+                <a ngbDropdownItem routerLink="/master/packet-type" >Packet Type</a>
+                <a ngbDropdownItem routerLink="/master/relation">Relation</a>
+              </div>
+            </li>
+            <li
+              class="nav-item" ngbDropdown
+              *ngIf="isLoggedIn && showAdminMenu"
+            >
+              <a class="nav-link text-dark" ngbDropdownToggle id="transactionDropdown" role="button">
+                Transactions
+              </a>
+              <div ngbDropdownMenu aria-labelledby="transactionDropdown" class="dropdown-menu dropdown-menu-right">
+                <a ngbDropdownItem routerLink="/transaction" >Users</a>
+                <a ngbDropdownItem routerLink="/transaction">Clients</a>
+                <a ngbDropdownItem routerLink="/transaction">Settings</a>
+              </div>
+            </li>
+            <li
+              class="nav-item" ngbDropdown
+              *ngIf="isLoggedIn && showAdminMenu"
+            >
+              <a class="nav-link text-dark" ngbDropdownToggle id="reportsDropdown" role="button">
+                Reports
+              </a>
+              <div ngbDropdownMenu aria-labelledby="reportsDropdown" class="dropdown-menu dropdown-menu-right">
+                <a ngbDropdownItem routerLink="/report" >Users</a>
+                <a ngbDropdownItem routerLink="/report">Clients</a>
+                <a ngbDropdownItem routerLink="/report">Settings</a>
+              </div>
+            </li>
+            <li
+              class="nav-item" ngbDropdown
+              [hidden]="!isLoggedIn"
+            >
+              <a class="nav-link text-dark" ngbDropdownToggle id="userDropdown" role="button">
+                <i class="fa fa-user-circle mr-1"></i> {{ displayName }}
+              </a>
+              <div ngbDropdownMenu aria-labelledby="userDropdown" class="dropdown-menu dropdown-menu-right">
+                <a ngbDropdownItem (click)="logout()">Sign out</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  

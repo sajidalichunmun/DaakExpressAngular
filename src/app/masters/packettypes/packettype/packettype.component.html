@@ -1,0 +1,28 @@
+
+    <mat-toolbar class="mtl">
+        {{packetService.packetType.id>0?"Modify Message Template":"Add Message Template"}}
+        <span class="fill-remaining-space"></span>
+        <button class="btn-dialog-close" mat-stroked-button (click)="onClose('')" tabindex="-1">
+          <mat-icon>clear</mat-icon>
+        </button>
+    </mat-toolbar>
+    <mat-card class="card">
+      <mat-card-content>
+      <form [formGroup]="packetService.form" (ngSubmit)="onSubmit()" class="simple-form">
+        <mat-form-field appearance="legacy" >
+          <mat-label>Packet Type</mat-label>
+          <input matInput formControlName="name" placeholder="Packet type" required [(ngModel)]="packetService.packetType.name" name="name">
+          <mat-error>This field is mandatory.</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="legacy" >
+          <mat-label>Packet Code</mat-label>
+          <input matInput formControlName="packettypeshortcode" placeholder="Packet code" required [(ngModel)]="packetService.packetType.packettypeshortcode" name="packettypeshortcode">
+          <mat-error *ngIf="packetService.form.controls['packettypeshortcode'].errors?.['required']">This field is mandatory.</mat-error>
+          <mat-error *ngIf="packetService.form.controls['packettypeshortcode']?.errors?.['minLength']">Minimum 4 charactors needed.</mat-error>
+        </mat-form-field>
+        <button type="submit" mat-button mat-raised-button color="primary" [disabled]="packetService.form.invalid"><span>{{packetService.packetType.id === 0 ?"Save":"Update"}}</span></button>&nbsp;
+        <button type="reset" mat-button mat-raised-button color="warn">Clear</button>&nbsp;
+      </form>
+    </mat-card-content>
+  </mat-card>
+  
