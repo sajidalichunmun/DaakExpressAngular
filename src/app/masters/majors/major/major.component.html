@@ -1,0 +1,53 @@
+
+    <mat-toolbar class="mtl">
+        <span>{{majorService.form.controls['id'].value? "Modify Existing Data": "New Entry Form"}}</span>
+        <span class="fill-remaining-space"></span>
+        <button class="btn-dialog-close" mat-stroked-button (click)="onClose('')" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+    </mat-toolbar>
+
+<mat-card class="card">
+  <mat-card-content>
+    <form [formGroup]="majorService.form" class="normal-form" (submit)="onSubmit()">
+      <mat-grid-list cols="2" rowHeight="160px">
+        <mat-grid-tile>
+          <div class="controles-container">
+            <input type="hidden" formControlName="id" >
+            <mat-form-field>
+                <input formControlName="majorCode" matInput placeholder="Major code" name="majorCode" >
+                <mat-error *ngIf="majorService.form.controls['majorCode'].errors['minlength']">
+                  Minimum 4 charactors needed
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="mobileNo" matInput placeholder="Mobileno" name="mobileNo" >
+              <mat-error *ngIf="majorService.form.controls['mobileNo'].errors['minlength']">
+                Minimum 10 digits needed
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="address2" matInput placeholder="Address2" name="address2" >
+          </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="controles-container">
+            <mat-form-field>
+              <input formControlName="name" matInput placeholder="Major Name" name="name" >
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="address1" matInput placeholder="ddress1" name="address1" >
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="description" matInput placeholder="Description" name="description" >
+            </mat-form-field>
+           
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div class="button-row pull-right">
+        <button mat-raised-button color="primary" type="submit" [disabled]="majorService.form.invalid"><span>{{majorService.form.get('id').value === null ?"Save":"Update"}}</span></button>
+        <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

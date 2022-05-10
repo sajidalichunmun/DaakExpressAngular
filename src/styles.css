@@ -8,6 +8,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
     margin-top: -20px;
     margin-bottom: 30px;
 }
+table {
+    width: 100%;
+  }
+  
 div.container{
     margin: 0px 40px;
 }

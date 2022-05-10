@@ -56,11 +56,6 @@ export class LoginComponent implements OnInit {
           window.location.replace('/dashboard');
           return;
         }
-      },
-      (err) =>{
-        console.log(err);
-        
-        this.submitted = false
       });
   }
 

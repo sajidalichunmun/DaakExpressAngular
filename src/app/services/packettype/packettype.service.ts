@@ -35,7 +35,7 @@ export class PackettypeService {
     this.packetType = {
       id: 0,
       name: null,
-      packettypeshortcode:'',
+      packetTypeShortCode:'',
       createdby: "",
       createdon: null,
       updatedby: '',
@@ -47,7 +47,7 @@ export class PackettypeService {
   populateForm(row: IPacketType) {
     this.packetType.id = row['ID'];
     this.packetType.name = row['Name'];
-    this.packetType.packettypeshortcode = row['PacketTypeShortCode'];
+    this.packetType.packetTypeShortCode = row['PacketTypeShortCode'];
   }
 
   list(): Observable<IPacketType[]> {

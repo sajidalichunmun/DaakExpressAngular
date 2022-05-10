@@ -18,19 +18,13 @@ export class NavMenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(localStorage.getItem('token') !== null && this.isLoggedIn === false){
+    if(this.authService.isLoggedIn() && this.isLoggedIn === false){
     
     this.authService.getUser().subscribe(
       (res) =>{
         this.isLoggedIn = true;
         this.currentUser = res.data.name;
         this.showAdminMenu = true;// this.authService.currentUser?.profile["role"] === 'identity-admin'
-      },
-      (err) =>{
-        console.log('getUser');
-        
-        console.log(err);
-        
       });
     }
   }
