@@ -16,9 +16,11 @@
         </mat-form-field>
         <mat-form-field appearance="legacy" >
           <mat-label>Packet Code</mat-label>
-          <input matInput formControlName="packettypeshortcode" placeholder="Packet code" required [(ngModel)]="packetService.packetType.packettypeshortcode" name="packettypeshortcode">
-          <mat-error *ngIf="packetService.form.controls['packettypeshortcode'].errors?.['required']">This field is mandatory.</mat-error>
-          <mat-error *ngIf="packetService.form.controls['packettypeshortcode']?.errors?.['minLength']">Minimum 4 charactors needed.</mat-error>
+          <input matInput formControlName="packettypeshortcode" placeholder="Packet code" required [(ngModel)]="packetService.packetType.packetTypeShortCode" name="packettypeshortcode">
+          <mat-error *ngIf="packetService.form.controls['packettypeshortcode'].errors['required']">This field is mandatory.</mat-error>
+          <mat-error *ngIf="packetService.form.controls['packettypeshortcode'].errors['minlength']">
+            Minimum 4 digits needed.
+          </mat-error> 
         </mat-form-field>
         <button type="submit" mat-button mat-raised-button color="primary" [disabled]="packetService.form.invalid"><span>{{packetService.packetType.id === 0 ?"Save":"Update"}}</span></button>&nbsp;
         <button type="reset" mat-button mat-raised-button color="warn">Clear</button>&nbsp;

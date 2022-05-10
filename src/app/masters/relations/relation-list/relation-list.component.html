@@ -1,17 +1,18 @@
 
 <div class="search-div">
-  <button mat-raised-button (click)="onCreate()">
+  <button mat-raised-button color="primary" (click)="onCreate()">
     <mat-icon>add</mat-icon>Create
   </button>
   <!-- floatLabel="naver"-->
   <mat-form-field class="search-form-field">
-    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
-    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter($event)">
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="clearData()">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
 </div>
-<!-- <div class="mat-elevation-z8"> -->
+<mat-card class="card">
+  <mat-card-content>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
         <!--- Note that these columns can be defined in any order.
@@ -85,4 +86,5 @@
       (page)="pageEvent = $event"
       >
       </mat-paginator>
-<!-- </div> -->
+  </mat-card-content>
+</mat-card>

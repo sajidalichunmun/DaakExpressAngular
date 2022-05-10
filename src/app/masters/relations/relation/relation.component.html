@@ -17,7 +17,7 @@
             </mat-form-field>
             
             <div class="button-row">
-              <button mat-raised-button color="primary" type="submit" packetService [disabled]="relationService.form.invalid"><span>{{relationService.form.get('id').value === null ?"Save":"Update"}}</span></button>
+              <button mat-raised-button color="primary" type="submit" [disabled]="relationService.form.invalid"><span>{{relationService.form.get('id').value === null ?"Save":"Update"}}</span></button>
               <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
             </div>
           </div>

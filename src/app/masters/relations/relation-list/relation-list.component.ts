@@ -115,11 +115,21 @@ export class RelationListComponent implements OnInit {
       )
   }
 
-  applyFilter(){
+  applyFilter1(){
     this.dataSource.data.filter(e => e.name.trim().toLowerCase() === this.searchKey.trim().toLowerCase());
   }
   onSearchClear(){
     this.searchKey = "";
-    this.applyFilter();
+    this.applyFilter1();
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  clearData() {
+    this.searchKey = "";
+    this.dataSource.filter = '';
   }
 }

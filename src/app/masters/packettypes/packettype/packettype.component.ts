@@ -55,7 +55,7 @@ export class PackettypeComponent implements OnInit {
     this.packetService.packetType = {
       id: 0,
       name: null,
-      packettypeshortcode:'',
+      packetTypeShortCode:'',
       createdby: '',
       createdon: null,
       updatedby: '',

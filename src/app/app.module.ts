@@ -22,7 +22,7 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material/material.module';
 import { AuthGuard } from './auth/auth.guard';
-import { HttpErrorInterceptorService } from './services/httperror-interceptor.service';
+import { HttpErrorInterceptorService } from './auth/httperror-interceptor.service';
 import { ToastrModule } from 'ngx-toastr';
 import { UserComponent } from './user/user.component';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';

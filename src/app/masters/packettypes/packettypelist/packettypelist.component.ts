@@ -71,6 +71,7 @@ export class PackettypelistComponent implements OnInit {
 
   clearData() {
     this.searchKey = "";
+    this.packetService.dataSource.filter = '';
   }
 
   initializeValues() {
@@ -78,7 +79,7 @@ export class PackettypelistComponent implements OnInit {
     {
       id: 0,
       name: "",
-      packettypeshortcode:'',
+      packetTypeShortCode:'',
       createdby: "",
       createdon: null,
       updatedby: '',
